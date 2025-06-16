@@ -71,7 +71,7 @@ ENTRIES = {
     },
     "libaec": {
         "home": "https://github.com/MathisRosenhauer/libaec",
-        "copying": "https://raw.githubusercontent.com/MathisRosenhauer/libaec/master/LICENSE.txt",
+        "copying": "https://raw.githubusercontent.com/MathisRosenhauer/libaec/v1.1.3/LICENSE.txt",
     },
     "libexpat": {
         "home": "https://libexpat.github.io",
