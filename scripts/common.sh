@@ -29,7 +29,7 @@ GIT_PROJ=https://github.com/OSGeo/PROJ.git
 PROJ_VERSION=master
 
 GIT_AEC=https://github.com/MathisRosenhauer/libaec.git
-AEC_VERSION=master
+AEC_VERSION=v1.1.3
 
 GIT_PIXMAN=https://gitlab.freedesktop.org/pixman/pixman
 PIXMAN_VERSION=master
