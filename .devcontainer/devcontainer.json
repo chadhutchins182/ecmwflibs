@@ -3,13 +3,11 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
-    
     // Features to add to the dev container
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},
         "ghcr.io/devcontainers/features/github-cli:1": {}
     },
-
     // Configure tool-specific properties
     "customizations": {
         "vscode": {
@@ -42,10 +40,8 @@
             }
         }
     },
-
     // Use 'forwardPorts' to make a list of ports inside the container available locally
     "forwardPorts": [],
-
     // Set up environment variables
     "containerEnv": {
         "PYTHONPATH": "/workspaces/ecmwflibs",
@@ -53,13 +49,10 @@
         "ECCODES_DIR": "/usr/local",
         "MAGICS_HOME": "/usr/local"
     },
-
     // Configure container user
     "remoteUser": "vscode",
-
     // Commands to run after container creation
     "postCreateCommand": "pip install -e .",
-
     // Mount the workspace
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/ecmwflibs,type=bind",
     "workspaceFolder": "/workspaces/ecmwflibs"

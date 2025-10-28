@@ -60,7 +60,7 @@ This dev container provides a complete development environment for the ecmwflibs
 
 - `pylint ecmwflibs/` - Lint code- `black` - Format your Python code
 
-- `python -m ecmwflibs versions` - Check ECMWF library versions- `pylint` - Lint your code for issues  
+- `python -m ecmwflibs versions` - Check ECMWF library versions- `pylint` - Lint your code for issues
 
 - `mypy` - Type checking
 
@@ -88,7 +88,7 @@ The container builds ecCodes and Magics from source to ensure compatibility and 
 
 The container is pre-configured with:
 - Python language server and debugging
-- Code formatting (Black, isort) 
+- Code formatting (Black, isort)
 - Linting (pylint, mypy)
 - C++ development tools
 - Git integration with GitLens
@@ -130,7 +130,7 @@ If you encounter issues:
 ## Files in This Directory
 
 - `devcontainer.json` - Main container configuration
-- `setup.sh` - Automated setup script 
+- `setup.sh` - Automated setup script
 - `Dockerfile.backup` - Original Dockerfile (backup)
 - `post-create.sh` - Original setup script (backup)
 - `README.md` - This file
