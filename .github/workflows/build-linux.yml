@@ -75,7 +75,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       name: Upload wheel 3.7
       with:
-        name: wheel-manylinux2014-3.7
+        name: wheel-manylinux_2_28-3.7
         path: wheelhouse/*.whl
 
     ################################################################
@@ -83,7 +83,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       name: Upload wheel 3.8
       with:
-        name: wheel-manylinux2014-3.8
+        name: wheel-manylinux_2_28-3.8
         path: wheelhouse/*.whl
 
     ################################################################
@@ -91,7 +91,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       name: Upload wheel 3.9
       with:
-        name: wheel-manylinux2014-3.9
+        name: wheel-manylinux_2_28-3.9
         path: wheelhouse/*.whl
 
     ################################################################
@@ -99,7 +99,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       name: Upload wheel 3.10
       with:
-        name: wheel-manylinux2014-3.10
+        name: wheel-manylinux_2_28-3.10
 
         path: wheelhouse/*.whl
     ################################################################
@@ -107,7 +107,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       name: Upload wheel 3.11
       with:
-        name: wheel-manylinux2014-3.11
+        name: wheel-manylinux_2_28-3.11
         path: wheelhouse/*.whl
 
     ################################################################
@@ -115,7 +115,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       name: Upload wheel 3.12
       with:
-        name: wheel-manylinux2014-3.12
+        name: wheel-manylinux_2_28-3.12
         path: wheelhouse/*.whl
 
     ################################################################
@@ -123,7 +123,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       name: Upload wheel 3.13
       with:
-        name: wheel-manylinux2014-3.13
+        name: wheel-manylinux_2_28-3.13
         path: wheelhouse/*.whl
 
   test:
