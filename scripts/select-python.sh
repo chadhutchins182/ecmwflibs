@@ -8,7 +8,7 @@ echo /opt/homebrew/opt/python@$version/libexec/bin >> $GITHUB_PATH
 
 ls -l /opt/homebrew/opt/python@$version/libexec/bin
 
-# Looks like python3 is not a symlink to python in 3.11
+# Looks like python3 is not a symlink to python in 3.11+
 
 if [[ ! -f /opt/homebrew/opt/python@$version/libexec/bin/python3 ]]
 then
