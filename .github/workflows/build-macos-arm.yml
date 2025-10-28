@@ -24,7 +24,7 @@ on:
     - 'scripts/wheel-macos.sh'
     - 'tools/copy-licences.py'
 
-# We don't use "actions/setup-python@v4" as it installs a universal python
+# We don't use "actions/setup-python@v5" as it installs a universal python
 # which creates universal wheels. We want to create wheels for the specific
 # architecture we are running on.
 
@@ -44,7 +44,7 @@ jobs:
     - run: sudo mkdir -p /Users/runner
     - run: sudo chown administrator:staff /Users/runner
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - run: ./scripts/select-python.sh "3.10"
     - run: ./scripts/build-macos.sh
@@ -53,7 +53,7 @@ jobs:
     - run: ./scripts/select-python.sh "3.9"
     - run: ./scripts/wheel-macos.sh "3.9"
     - run: ls -l wheelhouse
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.9
       with:
         name: wheel-macos-3.9
@@ -64,7 +64,7 @@ jobs:
     - run: ./scripts/select-python.sh "3.10"
     - run: ./scripts/wheel-macos.sh "3.10"
     - run: ls -l wheelhouse
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.10
       with:
         name: wheel-macos-3.10
@@ -75,7 +75,7 @@ jobs:
     - run: ./scripts/select-python.sh "3.11"
     - run: ./scripts/wheel-macos.sh "3.11"
     - run: ls -l wheelhouse
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.11
       with:
         name: wheel-macos-3.11
@@ -86,7 +86,7 @@ jobs:
     - run: ./scripts/select-python.sh "3.12"
     - run: ./scripts/wheel-macos.sh "3.12"
     - run: ls -l wheelhouse
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.12
       with:
         name: wheel-macos-3.12
@@ -97,7 +97,7 @@ jobs:
     - run: ./scripts/select-python.sh "3.13"
     - run: ./scripts/wheel-macos.sh "3.13"
     - run: ls -l wheelhouse
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.13
       with:
         name: wheel-macos-3.13
@@ -120,9 +120,9 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
-    - uses: actions/download-artifact@v2
+    - uses: actions/download-artifact@v4
       with:
         name: wheel-macos-${{ matrix.python-version }}
 
@@ -150,7 +150,7 @@ jobs:
     - run: pytest -v -s
       working-directory: tests
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: tests-macos-${{ matrix.python-version }}
         path: tests/*.png
@@ -178,7 +178,7 @@ jobs:
     - run: ./scripts/select-python.sh ${{ matrix.python-version }}
     - run: pip3 install twine
 
-    - uses: actions/download-artifact@v2
+    - uses: actions/download-artifact@v4
       with:
         name: wheel-macos-${{ matrix.python-version }}
 

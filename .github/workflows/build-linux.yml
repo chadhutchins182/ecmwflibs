@@ -45,14 +45,14 @@ jobs:
     name: Legacy build manylinux2014
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - run: ./scripts/build-linux.sh
 
 
     ################################################################
     - run: ./scripts/wheel-linux.sh 3.6
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.6
       with:
         name: wheel-manylinux2014-3.6
@@ -66,13 +66,13 @@ jobs:
     name: Build manylinux2014
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - run: ./scripts/build-linux.sh
 
     ################################################################
     - run: ./scripts/wheel-linux.sh 3.7
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.7
       with:
         name: wheel-manylinux2014-3.7
@@ -80,7 +80,7 @@ jobs:
 
     ################################################################
     - run: ./scripts/wheel-linux.sh 3.8
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.8
       with:
         name: wheel-manylinux2014-3.8
@@ -88,7 +88,7 @@ jobs:
 
     ################################################################
     - run: ./scripts/wheel-linux.sh 3.9
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.9
       with:
         name: wheel-manylinux2014-3.9
@@ -96,7 +96,7 @@ jobs:
 
     ################################################################
     - run: ./scripts/wheel-linux.sh 3.10
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.10
       with:
         name: wheel-manylinux2014-3.10
@@ -104,7 +104,7 @@ jobs:
         path: wheelhouse/*.whl
     ################################################################
     - run: ./scripts/wheel-linux.sh 3.11
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.11
       with:
         name: wheel-manylinux2014-3.11
@@ -112,7 +112,7 @@ jobs:
 
     ################################################################
     - run: ./scripts/wheel-linux.sh 3.12
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.12
       with:
         name: wheel-manylinux2014-3.12
@@ -120,7 +120,7 @@ jobs:
 
     ################################################################
     - run: ./scripts/wheel-linux.sh 3.13
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       name: Upload wheel 3.13
       with:
         name: wheel-manylinux2014-3.13
@@ -141,14 +141,14 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
 
-    - uses: actions/download-artifact@v2
+    - uses: actions/download-artifact@v4
       with:
         name: wheel-manylinux2014-${{ matrix.python-version }}
 
@@ -171,7 +171,7 @@ jobs:
     - run: pytest -v -s
       working-directory: tests
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: tests-manylinux2014-${{ matrix.python-version }}
         path: tests/*.png
@@ -203,7 +203,7 @@ jobs:
 
     - run: pip install twine
 
-    - uses: actions/download-artifact@v2
+    - uses: actions/download-artifact@v4
       with:
         name: wheel-manylinux2014-${{ matrix.python-version }}
 
