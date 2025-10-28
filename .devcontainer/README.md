@@ -1,46 +1,88 @@
-# Development Container for ECMWF Libraries
+# ECMWF Libraries Development Container# Development Container for ECMWF Libraries
 
-This devcontainer provides a complete development environment for working on the ecmwflibs project.
 
-## 🔄 UPDATED CONFIGURATION
 
-This container has been updated to use a more reliable and faster setup:
-- **Base Image**: Microsoft's pre-built Python 3.12 dev container image
-- **Simplified Setup**: Automated installation of system dependencies
-- **Better Reliability**: Reduced build times and fewer potential failure points
+This dev container provides a complete development environment for the ecmwflibs project with:This devcontainer provides a complete development environment for working on the ecmwflibs project.
 
-## Features
 
-- **Python 3.12**: Latest stable Python with full development tools
-- **ECMWF Libraries**: System packages for eccodes and related libraries
+
+## Included Software## 🔄 UPDATED CONFIGURATION
+
+
+
+- **Base Image**: Ubuntu 22.04This container has been updated to use a more reliable and faster setup:
+
+- **Python**: 3.12 (default) and 3.13 available- **Base Image**: Microsoft's pre-built Python 3.12 dev container image
+
+- **ECMWF Libraries**:- **Simplified Setup**: Automated installation of system dependencies
+
+  - ecCodes 2.44.0 (built from source)- **Better Reliability**: Reduced build times and fewer potential failure points
+
+  - Magics 4.16.0 (built from source)
+
+- **Development Tools**: ## Features
+
+  - pytest, black, isort, pylint, mypy
+
+  - VS Code extensions for Python development- **Python 3.12**: Latest stable Python with full development tools
+
+  - Git and GitHub CLI- **ECMWF Libraries**: System packages for eccodes and related libraries
+
 - **Development Tools**: pytest, black, isort, pylint, mypy, tox
-- **VS Code Extensions**: Python, C++, Git, and formatting extensions pre-configured
+
+## Getting Started- **VS Code Extensions**: Python, C++, Git, and formatting extensions pre-configured
+
 - **Build Tools**: Complete C/C++ toolchain for compiling extensions
 
-## Getting Started
+1. Open the project in VS Code
 
-1. **Open in Dev Container**: Use VS Code's "Reopen in Container" command
-2. **Wait for Setup**: The container will automatically install dependencies
+2. When prompted, click "Reopen in Container"## Getting Started
+
+3. Wait for the container to build (first time only)
+
+4. The package will be automatically installed in development mode1. **Open in Dev Container**: Use VS Code's "Reopen in Container" command
+
+5. Start developing!2. **Wait for Setup**: The container will automatically install dependencies
+
 3. **Install in Development Mode**: `pip install -e .`
-4. **Run Tests**: `pytest`
 
-## Available Commands
+## Available Commands4. **Run Tests**: `pytest`
 
-After setup, you'll have access to:
-- `pytest` - Run the test suite
-- `black` - Format your Python code
-- `pylint` - Lint your code for issues  
+
+
+- `pytest` - Run tests## Available Commands
+
+- `pytest --cov=ecmwflibs --cov-report=html` - Run tests with coverage
+
+- `black .` - Format codeAfter setup, you'll have access to:
+
+- `isort .` - Sort imports- `pytest` - Run the test suite
+
+- `pylint ecmwflibs/` - Lint code- `black` - Format your Python code
+
+- `python -m ecmwflibs versions` - Check ECMWF library versions- `pylint` - Lint your code for issues  
+
 - `mypy` - Type checking
-- `tox` - Test across multiple environments
 
-## System Libraries
+## Environment Variables- `tox` - Test across multiple environments
 
-The container includes all necessary system dependencies:
-- ECMWF eccodes library (via system packages)
+
+
+The container sets up the following environment variables:## System Libraries
+
+- `ECCODES_DIR=/usr/local`
+
+- `MAGICS_HOME=/usr/local`The container includes all necessary system dependencies:
+
+- `PYTHONPATH=/workspaces/ecmwflibs`- ECMWF eccodes library (via system packages)
+
 - NetCDF, HDF5, PROJ, GEOS libraries
-- Complete C/C++/Fortran toolchain
+
+## Building- Complete C/C++/Fortran toolchain
+
 - CMake and build tools
-- Git and development utilities
+
+The container builds ecCodes and Magics from source to ensure compatibility and the latest features. This takes some time on first build but provides a reliable development environment.- Git and development utilities
 
 ## VS Code Configuration
 

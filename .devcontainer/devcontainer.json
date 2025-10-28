@@ -1,6 +1,8 @@
 {
     "name": "ECMWF Libraries Development",
-    "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
     
     // Features to add to the dev container
     "features": {
@@ -23,7 +25,7 @@
                 "ms-python.pylint"
             ],
             "settings": {
-                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.defaultInterpreterPath": "/usr/bin/python3",
                 "python.analysis.autoImportCompletions": true,
                 "python.analysis.typeCheckingMode": "basic",
                 "python.testing.pytestEnabled": true,
@@ -44,15 +46,21 @@
     // Use 'forwardPorts' to make a list of ports inside the container available locally
     "forwardPorts": [],
 
-    // Use 'postCreateCommand' to run setup after container is created
-    "postCreateCommand": "bash .devcontainer/setup.sh",
-
     // Set up environment variables
     "containerEnv": {
         "PYTHONPATH": "/workspaces/ecmwflibs",
-        "DEBIAN_FRONTEND": "noninteractive"
+        "DEBIAN_FRONTEND": "noninteractive",
+        "ECCODES_DIR": "/usr/local",
+        "MAGICS_HOME": "/usr/local"
     },
 
     // Configure container user
-    "remoteUser": "vscode"
+    "remoteUser": "vscode",
+
+    // Commands to run after container creation
+    "postCreateCommand": "pip install -e .",
+
+    // Mount the workspace
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/ecmwflibs,type=bind",
+    "workspaceFolder": "/workspaces/ecmwflibs"
 }
